@@ -2,28 +2,26 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useManagerStore = defineStore('manager', () => {
-  const isModalOpen = ref(false)
-  const isTimerConfigured = ref(false)
-  const isTimerRunning = ref(false)
+  const modalState = ref('closed')
+  const timerState = ref('unconfigured')
 
-  function toggleIsModalOpen() {
-    isModalOpen.value = !isModalOpen.value
+  function getModalState() {
+    return modalState.value
   }
 
-  function toggleIsTimerConfigured() {
-    isTimerConfigured.value = !isTimerConfigured.value
+  function setModalState(state: string) {
+    modalState.value = state
+    return modalState.value
   }
 
-  function toggleIsTimerRunning() {
-    isTimerRunning.value = !isTimerRunning.value
+  function getTimerState() {
+    return timerState.value
   }
 
-  return {
-    isModalOpen,
-    isTimerConfigured,
-    isTimerRunning,
-    toggleIsModalOpen,
-    toggleIsTimerConfigured,
-    toggleIsTimerRunning,
+  function setTimer(state: string) {
+    timerState.value = state
+    return timerState.value
   }
+
+  return { getModalState, setModalState, getTimerState, setTimer }
 })

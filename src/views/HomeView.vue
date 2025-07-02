@@ -6,17 +6,17 @@ import { useManagerStore } from '@/stores/manager'
 
 const manager = useManagerStore()
 
-function handleClick() {
-  manager.toggleIsModalOpen()
+function openModal() {
+  manager.setModalState('configuringTimer')
 }
 </script>
 
 <template>
   <main>
-    <section v-if="!manager.isTimerConfigured">
+    <section v-if="manager.getTimerState() === 'unconfigured'">
       <h2>Setup a timer for your game</h2>
-      <Button @click="handleClick">Configure</Button>
+      <Button @click="openModal">Configure</Button>
     </section>
   </main>
-  <Modal v-if="manager.isModalOpen">Timer settings</Modal>
+  <Modal v-if="manager.getModalState() === 'configuringTimer'">Timer settings</Modal>
 </template>
