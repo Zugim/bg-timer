@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <header>Welcome</header>
+  <header>bg_timer</header>
 
   <RouterView />
 </template>
