@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { Icon } from '@iconify/vue'
+
+import Button from './Button.vue'
+
 import { useManagerStore } from '@/stores/manager'
 
 const manager = useManagerStore()
@@ -9,10 +13,7 @@ function closeModal() {
 </script>
 
 <template>
-  <button
-    @click="closeModal"
-    class="absolute top-2 right-2 aspect-square rounded-full bg-red-400 px-4 py-2 font-bold text-white hover:bg-red-500"
-  >
-    X
-  </button>
+  <Button @click="closeModal" class="absolute top-2 right-2 rounded-full p-1"
+    ><Icon icon="lucide:x" :width="24"
+  /></Button>
 </template>
